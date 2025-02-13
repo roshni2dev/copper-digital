@@ -1,0 +1,36 @@
+.button-container {
+    min-width: 165px;
+    width: auto;
+    height: 50px;
+    letter-spacing: .5px;
+    line-height: 50px;
+    padding: 0 35px;
+    background-color: #000;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Open Sans';
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.button-container:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+
+.button-container .inverted {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.button-container .inverted:hover {
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
