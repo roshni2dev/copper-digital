@@ -5,6 +5,7 @@
     height: 400px;
     align-items: center;
     position: relative;
+  
 }
 
 .product-card-container img {
@@ -12,6 +13,7 @@
     height: 85%;
     object-fit: cover;
     margin-bottom: 10px;
+    /* border: 1px solid #000; */
 }
 
 .product-card-container button {

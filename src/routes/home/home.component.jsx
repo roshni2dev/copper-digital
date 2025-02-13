@@ -1,14 +1,18 @@
-import { useContext } from 'react';
+import { Fragment, useContext } from 'react';
 
 import './home.styles.css';
-import ProductCard from '../product-card/product-card.component';
+import ProductCard from '../../component/product-card/product-card.component';
 import { CategoriesContext } from '../../context/categories.context';
+import Snackbar from '../../component/snackbar/snackbar.component';
+import { CartContext } from '../../context/cart.context';
 
 const Home = () => {
     const { categories } = useContext(CategoriesContext);
+    const { successSnackbarVisible,setSuccessSnackbarVisible } = useContext(CartContext);
     console.log(categories)
 
     return (
+        <Fragment>
         <div className='products-container'>
             {categories.map((category) => (
                 <div className="category-preview-container">
@@ -20,6 +24,12 @@ const Home = () => {
                 </div>
             ))}
         </div>
+        <Snackbar
+          message="Item is Added"
+          visible={successSnackbarVisible}
+          onClose={() => setSuccessSnackbarVisible(false)}
+        />
+        </Fragment>
     );
 };
 

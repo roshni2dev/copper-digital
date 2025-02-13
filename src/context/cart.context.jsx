@@ -44,6 +44,8 @@ export const CartContext = createContext({
     clearItemFromCart: () => { },
     cartCount: 0,
     cartTotal: 0,
+    successSnackbarVisible: false,
+    setSuccessSnackbarVisible: () => { },
 });
 
 export const CartProvider = ({ children }) => {
@@ -51,6 +53,7 @@ export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
     const [cartCount, setCartCount] = useState(0);
     const [cartTotal, setCartTotal] = useState(0);
+    const [successSnackbarVisible, setSuccessSnackbarVisible] = useState(false);
 
     useEffect(() => {
         const newCartCount = cartItems.reduce(
@@ -69,7 +72,8 @@ export const CartProvider = ({ children }) => {
     }, [cartItems]);
 
     const addItemToCart = (productToAdd) => {
-        setCartItems(addCartItem(cartItems, productToAdd));
+        setCartItems(addCartItem(cartItems, productToAdd,));
+        setSuccessSnackbarVisible(true);
     };
 
     const removeItemToCart = (cartItemToRemove) => {
@@ -89,6 +93,8 @@ export const CartProvider = ({ children }) => {
         cartItems,
         cartCount,
         cartTotal,
+        successSnackbarVisible,
+        setSuccessSnackbarVisible
     };
 
     return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

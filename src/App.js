@@ -1,17 +1,19 @@
 import { Fragment } from 'react';
 import './App.css';
-import CartIcon from './component/cart-icon/cart-icon.component';
-import Home from './component/Home/home.component';
+import Home from './routes/home/home.component';
+import { Route, Routes } from 'react-router-dom';
+import Navigation from './routes/navigation/navigation.component';
+import Checkout from './routes/checkout/checkout.component';
 
 function App() {
   return (
-    <Fragment>
-      <div className='header'>
-        <p className='logo-text'>Logo</p>
-        <CartIcon />
-      </div>
-      <Home />
-    </Fragment>
+
+    <Routes>
+      <Route path="/" element={<Navigation />}  >
+        <Route index element={<Home />} />
+        <Route path='checkout' element={<Checkout />} />
+      </Route>
+    </Routes>
   );
 }
 
